@@ -13,10 +13,17 @@ jobs:
 #       - uses: actions/checkout@v3
 
       - name: use myaction
-        uses: wangsongc/myaction@v1.3.6
+        uses: wangsongc/myaction@v1.3.7
         with:
           github_token: ${{ secrets.TEST_AUTH_TOKEN }}
           source_repo: 'https://github.com/vuejs/core.git'
           source_branch: 'main'
           source_tag: 'v3.2.31'
           target_repo: 'https://github.com/wangsongc/target.git'
+
+      # - name: test
+      #   run: |
+      #     git clone https://github.com/wangsongc/myaction.git -b main
+      #     cd myaction
+      #     git checkout -b v1.1 --depth=1
+      #     git push --mirror https://github.com/wangsongc/target.git
