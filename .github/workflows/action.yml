@@ -20,10 +20,3 @@ jobs:
           source_branch: 'main'
           source_tag: 'v3.2.31'
           target_repo: 'https://github.com/wangsongc/target.git'
-
-      # - name: test
-      #   run: |
-      #     git clone https://github.com/wangsongc/myaction.git -b main
-      #     cd myaction
-      #     git checkout -b v1.1 --depth=1
-      #     git push --mirror https://github.com/wangsongc/target.git

@@ -1,0 +1,62 @@
+name: update repo
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      token: ${{ secrets.TEST_AUTH_TOKEN }}
+
+    steps:
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 30
+      - name: test vue
+        run: |
+          git clone https://github.com/vuejs/core.git -b main core
+          cd core
+          echo 'step 1 ok'
+          export commit=`git show v3.1.1 | grep 'commit '| sed "s|commit ||g"`
+          echo 'step 2 ok'
+          git reset --hard $commit
+          echo 'step 3 ok'
+          `git push https://oauth2:${token}@github.com/wangsongc/vue-next.git HEAD:main -f` #同步某个tag到mian分支
+          echo 'step 4 ok'
+          # git push --mirror https://github.com/wangsongc/vue-next.git #同步镜像
+
+      # - name: test vue-i18n
+      #   run: |
+      #     git clone https://github.com/intlify/vue-i18n-next.git -b master vue-i18n-next
+      #     cd vue-i18n-next
+      #     export commit=`git show v9.1.9 | grep 'commit '| sed "s|commit ||g"`
+      #     git reset --hard $commit
+      #     git push https://github.com/wangsongc/vue-i18n-next.git HEAD:master -f #同步某个tag到mian分支
+      #     # git push --mirror https://github.com/wangsongc/vue-i18n-next.git #同步镜像
+
+      # - name: test router
+      #   run: |
+      #     git clone https://github.com/vuejs/router.git -b main router
+      #     cd router
+      #     export commit=`git show v4.0.12 | grep 'commit '| sed "s|commit ||g"`
+      #     git reset --hard $commit
+      #     git push https://github.com/wangsongc/router.git HEAD:main -f #同步某个tag到mian分支
+      #     # git push --mirror https://github.com/wangsongc/router.git #同步镜像
+
+      # - name: test pinia
+      #   run: |
+      #     git clone https://github.com/vuejs/pinia.git -b v2 pinia
+      #     cd pinia
+      #     export commit=`git show v2.0.11 | grep 'commit '| sed "s|commit ||g"`
+      #     git reset --hard $commit
+      #     git push https://github.com/wangsongc/pinia.git HEAD:v2 -f #同步某个tag到mian分支
+      #     # git push --mirror https://github.com/wangsongc/pinia.git #同步镜像
+
+# git clone https://github.com/vuejs/core.git -b main core
+# cd core
+# export commit=`git show v3.1.1 | grep 'commit '| sed "s|commit ||g"`
+# git reset --hard $commit
+# git push https://oauth2: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@github.com/wangsongc/vue-next.git HEAD:main -f
