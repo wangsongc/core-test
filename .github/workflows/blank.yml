@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+#       - uses: actions/checkout@v3
+
+      - name: use myaction
+        uses: actions/hello-world-javascript-action@v1.2
+        with:
+          github_token: ${{ secrets.TEST_AUTH_TOKEN }}
+          source_repo: 'https://github.com/vuejs/core.git'
+          source_branch: 'main'
+          source_tag: 'v3.2.31'
+          target_repo: 'https://github.com/wangsongc/target.git'
