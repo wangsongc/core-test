@@ -23,9 +23,6 @@ jobs:
           echo 'step 2 ok'
           git reset --hard $commit
           echo 'step 3 ok'
-          # `git push https://oauth2:${token}@github.com/wangsongc/vue-next.git HEAD:main -f` #同步某个tag到mian分支
-          # `git push https://oauth2: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@github.com/wangsongc/vue-next.git HEAD:main -f`
-          # git push --mirror https://github.com/wangsongc/vue-next.git #同步镜像
           git remote set-url origin https://oauth2:${token}@github.com/wangsongc/vue-next.git
           echo 'step 4 ok'
           git push -f
