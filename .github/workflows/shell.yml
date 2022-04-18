@@ -23,40 +23,44 @@ jobs:
           echo 'step 2 ok'
           git reset --hard $commit
           echo 'step 3 ok'
+          # 修改核心依赖版本
+          # 执行测试
+          yarn
+          yarn test --ci
           git remote set-url origin https://oauth2:${token}@github.com/wangsongc/vue-next.git
           echo 'step 4 ok'
           git push -f
           echo 'done'
 
-      - name: test vue-i18n
-        run: |
-          git clone https://oauth2:${token}@github.com/intlify/vue-i18n-next.git -b master vue-i18n-next
-          cd vue-i18n-next
-          export commit=`git show v9.1.9 | grep 'commit '| sed "s|commit ||g"`
-          git reset --hard $commit
-          git remote set-url origin https://oauth2:${token}@github.com/wangsongc/vue-i18n-next.git
-          git push -f
-          echo 'done'
+      # - name: test vue-i18n
+      #   run: |
+      #     git clone https://oauth2:${token}@github.com/intlify/vue-i18n-next.git -b master vue-i18n-next
+      #     cd vue-i18n-next
+      #     export commit=`git show v9.1.9 | grep 'commit '| sed "s|commit ||g"`
+      #     git reset --hard $commit
+      #     git remote set-url origin https://oauth2:${token}@github.com/wangsongc/vue-i18n-next.git
+      #     git push -f
+      #     echo 'done'
 
-      - name: test router
-        run: |
-          git clone https://oauth2:${token}@github.com/vuejs/router.git -b main router
-          cd router
-          export commit=`git show v4.0.12 | grep 'commit '| sed "s|commit ||g"`
-          git reset --hard $commit
-          git remote set-url origin https://oauth2:${token}@github.com/wangsongc/router.git
-          git push -f
-          echo 'done'
+      # - name: test router
+      #   run: |
+      #     git clone https://oauth2:${token}@github.com/vuejs/router.git -b main router
+      #     cd router
+      #     export commit=`git show v4.0.12 | grep 'commit '| sed "s|commit ||g"`
+      #     git reset --hard $commit
+      #     git remote set-url origin https://oauth2:${token}@github.com/wangsongc/router.git
+      #     git push -f
+      #     echo 'done'
 
-      - name: test pinia
-        run: |
-          git clone https://oauth2:${token}@github.com/vuejs/pinia.git -b v2 pinia
-          cd pinia
-          export commit=`git show v2.0.11 | grep 'commit '| sed "s|commit ||g"`
-          git reset --hard $commit
-          git remote set-url origin https://oauth2:${token}@github.com/wangsongc/pinia.git
-          git push -f
-          echo 'done'
+      # - name: test pinia
+      #   run: |
+      #     git clone https://oauth2:${token}@github.com/vuejs/pinia.git -b v2 pinia
+      #     cd pinia
+      #     export commit=`git show v2.0.11 | grep 'commit '| sed "s|commit ||g"`
+      #     git reset --hard $commit
+      #     git remote set-url origin https://oauth2:${token}@github.com/wangsongc/pinia.git
+      #     git push -f
+      #     echo 'done'
 
       - name: Setup tmate session
         if: ${{ failure() }}
