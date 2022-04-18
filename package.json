@@ -1,0 +1,28 @@
+{
+  "name": "core-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangsongc/core-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangsongc/core-test/issues"
+  },
+  "homepage": "https://github.com/wangsongc/core-test#readme",
+  "dependencies": {
+    "@types/node": "^16.4.5",
+    "vue": "3.2.31",
+    "vue-i18n": "9.1.9",
+    "vue-router": "4.0.12",
+    "vuex": "4.0.2",
+    "pinia": "2.0.11"
+  }
+}
