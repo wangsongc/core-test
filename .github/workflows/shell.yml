@@ -5,8 +5,9 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
-  build:
+  vue-next:
     runs-on: ubuntu-latest
     env:
       token: ${{ secrets.TEST_AUTH_TOKEN }}
@@ -36,12 +37,13 @@ jobs:
           cd vue-i18n-next
           export commit=`git show v9.1.9 | grep 'commit '| sed "s|commit ||g"`
           git reset --hard $commit
+          yarn
+          yarn build
           # 修改核心依赖版本
           sed -i 's|^.*@vue/server-renderer.*$|"@vue/server-renderer": "3.2.31",|' package.json
           sed -i 's|^.*"vue":.*$|"vue": "3.2.31",|' package.json
-          yarn install
-          yarn build --all -t
-          yarn test
+          yarn
+          yarn test:e2e
           git remote set-url origin https://oauth2:${token}@github.com/wangsongc/vue-i18n-next.git
           git push -f
           echo 'done'
