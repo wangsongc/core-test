@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use myaction
+        uses: wangsongc/myaction@v1.3.10
+        with:
+          github_token: ${{ secrets.TEST_AUTH_TOKEN }}
+          source_repo: 'https://github.com/vuejs/core.git'
+          source_branch: 'main'
+          source_tag: 'v3.2.31'
+          target_repo: 'https://github.com/wangsongc/vue-next.git'
+
+      - name: core test
+        run: |
+          cd core
+          npm i pnpm -g
+          pnpm install
+          pnpm test
+
+  vue-i18n-next:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use myaction
+        uses: wangsongc/myaction@v1.3.10
+        with:
+          github_token: ${{ secrets.TEST_AUTH_TOKEN }}
+          source_repo: 'https://github.com/intlify/vue-i18n-next.git'
+          source_branch: 'master'
+          source_tag: 'v9.1.9'
+          target_repo: 'https://github.com/wangsongc/vue-i18n-next.git'
+
+      - name: vue-i18n-next test
+        run: |
+          cd vue-i18n-next
+          yarn
+          yarn build
+          # 修改核心依赖版本
+          sed -i 's|^.*@vue/server-renderer.*$|"@vue/server-renderer": "3.2.31",|' package.json
+          sed -i 's|^.*"vue":.*$|"vue": "3.2.31",|' package.json
+          yarn
+          # yarn test:unit # 有用例因为vue依赖升级导致快照对比失败
+          yarn test:e2e
+
+  router:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use myaction
+        uses: wangsongc/myaction@v1.3.10
+        with:
+          github_token: ${{ secrets.TEST_AUTH_TOKEN }}
+          source_repo: 'https://github.com/vuejs/router.git'
+          source_branch: 'main'
+          source_tag: 'v4.0.12'
+          target_repo: 'https://github.com/wangsongc/router.git'
+
+      - name: router test
+        run: |
+          cd router
+          yarn
+          yarn build
+          sed -i 's|^.*@vue/compiler-sfc":.*$|"@vue/compiler-sfc": "^3.2.31",|' package.json
+          sed -i 's|^.*@vue/server-renderer":.*$|"@vue/server-renderer": "^3.2.31",|' package.json
+          sed -i 's|^.*"vue":.*.,$|"vue": "3.2.31",|' package.json
+          sed -i 's|^.*"vue":.*."$|"vue": "3.2.31"|' package.json
+          yarn
+          yarn test:unit
+          yarn test:e2e:ci
+
+  pinia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use myaction
+        uses: wangsongc/myaction@v1.3.10
+        with:
+          github_token: ${{ secrets.TEST_AUTH_TOKEN }}
+          source_repo: 'https://github.com/vuejs/pinia.git'
+          source_branch: 'v2'
+          source_tag: 'pinia@2.0.11'
+          target_repo: 'https://github.com/wangsongc/pinia.git'
+      - name: pinia
+        run: |
+          cd pinia
+          yarn
+          yarn test
