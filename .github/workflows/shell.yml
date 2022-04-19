@@ -2,9 +2,9 @@ name: update repo
 
 on:
   push:
-    branches: [main]
+    branches: [main1]
   pull_request:
-    branches: [main]
+    branches: [main1]
 
 jobs:
   core-test:
@@ -15,21 +15,17 @@ jobs:
     steps:
       - name: test vue
         run: |
-          echo $token
+          # token/source_url/target_url/project_name/default_branch/tag/
           git clone https://oauth2:${token}@github.com/vuejs/core.git -b main core
           cd core
           git remote set-url origin https://oauth2:${token}@github.com/wangsongc/vue-next.git
-          # export commit=`git show v3.1.1 | grep 'commit '| sed "s|commit ||g"`
-          # echo $commit
           git checkout v3.2.31
-          # git reset --hard $commit
-          # 修改核心依赖版本
+          git push origin HEAD:main
           # 执行测试
           npm i pnpm -g
           pnpm install
           pnpm test
           # 同步代码到测试仓
-          git push origin HEAD:main
           echo 'done'
 
       - name: test vue-i18n
@@ -37,9 +33,8 @@ jobs:
           git clone https://oauth2:${token}@github.com/intlify/vue-i18n-next.git -b master vue-i18n-next
           cd vue-i18n-next
           git remote set-url origin https://oauth2:${token}@github.com/wangsongc/vue-i18n-next.git
-          # export commit=`git show v9.1.9 | grep 'commit '| sed "s|commit ||g"`
-          # git reset --hard $commit
           git checkout v9.1.9
+          git push origin HEAD:master
           yarn
           yarn build
           # 修改核心依赖版本
@@ -48,7 +43,6 @@ jobs:
           yarn
           # yarn test:unit # 有用例因为vue依赖升级导致快照对比失败
           yarn test:e2e
-          git push origin HEAD:master
           echo 'done'
 
       - name: test router
@@ -56,9 +50,8 @@ jobs:
           git clone https://oauth2:${token}@github.com/vuejs/router.git -b main router
           cd router
           git remote set-url origin https://oauth2:${token}@github.com/wangsongc/router.git
-          # export commit=`git show v4.0.12 | grep 'commit '| sed "s|commit ||g"`
-          # git reset --hard $commit
           git checkout v4.0.12
+          git push origin HEAD:main
           yarn
           yarn build
           sed -i 's|^.*@vue/compiler-sfc":.*$|"@vue/compiler-sfc": "^3.2.31",|' package.json
@@ -68,7 +61,6 @@ jobs:
           yarn
           yarn test:unit
           yarn test:e2e:ci
-          git push origin HEAD:main
           echo 'done'
 
       - name: test pinia
@@ -76,12 +68,10 @@ jobs:
           git clone https://oauth2:${token}@github.com/vuejs/pinia.git -b v2 pinia
           cd pinia
           git remote set-url origin https://oauth2:${token}@github.com/wangsongc/pinia.git
-          # export commit=`git show pinia@2.0.11 | grep 'commit '| sed "s|commit ||g"`
-          # git reset --hard $commit
           git checkout pinia@2.0.11
+          git push origin HEAD:v2
           yarn
           yarn test
-          git push origin HEAD:v2
           echo 'done'
 
       - name: Setup tmate session
