@@ -1,3 +1,2 @@
-# core-test
+# core-test [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg?branch=main)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml)
 
-## wangsongc/vue-next[![build status](https://github.com/wangsongc/vue-next/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/wangsongc/vue-next/actions/workflows/ci.yml)
