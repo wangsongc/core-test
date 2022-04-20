@@ -16,7 +16,7 @@ jobs:
           source_repo: 'https://github.com/vuejs/core.git'
           source_branch: 'main'
           source_tag: 'v3.2.31'
-          target_repo: 'https://github.com/wangsongc/vue-next.git'
+          target_repo: 'https://github.com/wangsongc/core.git'
 
       - name: core test
         run: |
