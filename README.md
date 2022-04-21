@@ -13,7 +13,7 @@
 ## Vulnerability scanning
 
 
-- snyc
+- snyk
 
     https://app.snyk.io/org/wangsongc/projects
 
