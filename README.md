@@ -1,34 +1,9 @@
-# core-test [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg?branch=main)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml)
 
-## E2E test
-| projects                                                     | status                                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [core](https://github.com/wangsongc/core.git)                | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) |
-| [vue-i18n-next](https://github.com/wangsongc/vue-i18n-next.git) | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) |
-| [router](https://github.com/wangsongc/router.git)            | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) |
-| [pinia](https://github.com/wangsongc/pinia.git)              | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) |
+## Core project status
 
-
-
-## Vulnerability scanning
-
-
-- snyk
-
-    https://app.snyk.io/org/wangsongc/projects
-
-## Code scanning
-
-- sonarcloud
-
-    | projects      | links                                                        |
-    | ------------- | ------------------------------------------------------------ |
-    | core          | [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=wangsongc_core) |
-    | vue-i18n-next | [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=wangsongc_vue-i18n-next) |
-    | router        | [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=wangsongc_router) |
-    | pinia         | [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=wangsongc_pinia) |
-    
-    
-    
-    
-
+| Projects                                                     | CI status                                                    | Vulnerability                                                | Code scanning                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [core](https://github.com/wangsongc/core.git)                | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) | [![Known Vulnerabilities](https://snyk.io/test/github/wangsongc/core/badge.svg)](https://snyk.io/test/github/wangsongc/core) | [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wangsongc_core&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wangsongc_core) |
+| [vue-i18n-next](https://github.com/wangsongc/vue-i18n-next.git) | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) | [![Known Vulnerabilities](https://snyk.io/test/github/wangsongc/vue-i18n-next/badge.svg)](https://snyk.io/test/github/wangsongc/vue-i18n-next) | [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wangsongc_vue-i18n-next&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wangsongc_vue-i18n-next) |
+| [router](https://github.com/wangsongc/router.git)            | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) | [![Known Vulnerabilities](https://snyk.io/test/github/wangsongc/router/badge.svg)](https://snyk.io/test/github/wangsongc/router) | [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wangsongc_pinia&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wangsongc_pinia) |
+| [pinia](https://github.com/wangsongc/pinia.git)              | [![CI](https://github.com/wangsongc/core-test/actions/workflows/action2.yml/badge.svg)](https://github.com/wangsongc/core-test/actions/workflows/action2.yml) | [![Known Vulnerabilities](https://snyk.io/test/github/wangsongc/pinia/badge.svg)](https://snyk.io/test/github/wangsongc/pinia) | [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wangsongc_router&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wangsongc_router) |
