@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: update-repo
-        uses: wangsongc/batch-update-repo@v1.3.12
+        uses: wangsongc/batch-update-repo@e0c0881f7b805dad01b798fcc30948eac81525f9
         with:
           github_token: ${{ secrets.TEST_AUTH_TOKEN }}
           source_repo: 'https://github.com/vuejs/core.git'
