@@ -19,7 +19,7 @@
   "homepage": "https://github.com/wangsongc/core-test#readme",
   "dependencies": {
     "@types/node": "^16.4.5",
-    "vue": "3.2.31",
+    "vue": "3.2.32",
     "vue-i18n": "9.1.9",
     "vue-router": "4.0.12",
     "vuex": "4.0.2",
