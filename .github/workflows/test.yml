@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: origin.js
-        uses: wangsongc/batch-update-repo@e0c0881f7b805dad01b798fcc30948eac81525f9
+        uses: wangsongc/batch-update-repo@v1.3.15
         with:
           github_token: ${{ secrets.TEST_AUTH_TOKEN }}
           source_repo: 'https://github.com/originjs/origin.js.git, https://github.com/postcss/postcss.git, https://github.com/FasterXML/stax2-api.git'
